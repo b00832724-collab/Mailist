@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mailist — Nouvelle campagne</title>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Mailist — Front-end de campagnes</h1>
+    <nav>
+      <button id="tab-new" class="active">Nouvelle campagne</button>
+      <button id="tab-campaigns">Campagnes</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="new-campaign" class="tab">
+      <label>Objet</label>
+      <input id="subject" type="text" placeholder="Sujet de la campagne" />
+
+      <label>Corps du message</label>
+      <!-- toolbar -->
+      <div id="toolbar">
+        <!-- Add formatting options -->
+        <select class="ql-header">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option selected></option>
+        </select>
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <button class="ql-color"></button>
+        <button class="ql-link"></button>
+        <button class="ql-image"></button>
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <button class="ql-align" value=""></button>
+        <button class="ql-align" value="center"></button>
+        <button class="ql-align" value="right"></button>
+      </div>
+      <div id="editor" style="height: 250px;"></div>
+
+      <div class="controls">
+        <button id="btn-contacts">Ajouter les contacts</button>
+        <button id="btn-add-followup">Ajouter une relance</button>
+        <button id="btn-schedule">Planifier l'envoi</button>
+        <button id="btn-save" class="primary">Enregistrer la campagne</button>
+      </div>
+
+      <div id="followups-list" class="panel">
+        <h3>Relances ajoutées</h3>
+        <ul id="followups-ul"></ul>
+      </div>
+
+      <div id="schedule-panel" class="panel hidden">
+        <h3>Planification</h3>
+        <label>À partir de :</label>
+        <input id="schedule-start" type="date" />
+        <label>Fréquence</label>
+        <select id="schedule-frequency">
+          <option value="once">Une fois</option>
+          <option value="daily">Quotidien</option>
+          <option value="weekly">Hebdomadaire</option>
+          <option value="monthly">Mensuel</option>
+        </select>
+      </div>
+
+    </section>
+
+    <section id="campaigns" class="tab hidden">
+      <h2>Campagnes en cours</h2>
+      <div id="campaigns-running"></div>
+
+      <h2>Campagnes terminées</h2>
+      <div id="campaigns-finished"></div>
+    </section>
+  </main>
+
+  <!-- Contacts modal -->
+  <div id="modal-contacts" class="modal hidden">
+    <div class="modal-content">
+      <h3>Ajouter des contacts (coller une liste d'emails)</h3>
+      <textarea id="contacts-text" placeholder="collez des adresses e-mail, séparées par des virgules, retours-lignes ou point-virgules" rows="8"></textarea>
+      <div class="modal-actions">
+        <button id="contacts-cancel">Annuler</button>
+        <button id="contacts-parse">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Followup modal -->
+  <div id="modal-followup" class="modal hidden">
+    <div class="modal-content">
+      <h3>Ajouter une relance</h3>
+      <label>Jours avant relance</label>
+      <input id="followup-days" type="number" min="1" value="3" />
+      <label>Corps de la relance</label>
+      <div id="followup-toolbar"></div>
+      <div id="followup-editor" style="height:180px;"></div>
+      <div class="modal-actions">
+        <button id="followup-cancel">Annuler</button>
+        <button id="followup-add">Ajouter relance</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

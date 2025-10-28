@@ -1,0 +1,31 @@
+:root{--primary:#0b5cff;--muted:#666}
+*{box-sizing:border-box;font-family:Segoe UI, Roboto, Arial, sans-serif}
+body{margin:0;background:#f5f7fb;color:#111}
+header{background:linear-gradient(90deg,#fff,#f0f4ff);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e2e8f0}
+header h1{margin:0;font-size:18px}
+nav button{margin-left:8px;padding:6px 10px;border-radius:6px;border:1px solid #d0d7ef;background:white;cursor:pointer}
+nav button.active{background:var(--primary);color:white;border-color:transparent}
+main{padding:20px}
+label{display:block;margin-top:12px;font-weight:600}
+input[type=text], input[type=date], textarea{width:100%;padding:8px;border:1px solid #d1d5db;border-radius:6px}
+#editor, #followup-editor{background:white;border:1px solid #d1d5db;border-radius:6px}
+.controls{margin-top:12px}
+.controls button{margin-right:8px;padding:8px 12px;border-radius:6px;border:1px solid #cbd5e1;background:white;cursor:pointer}
+.controls button.primary{background:var(--primary);color:white;border-color:transparent}
+.panel{margin-top:14px;padding:12px;background:white;border-radius:8px;border:1px solid #e2e8f0}
+.hidden{display:none}
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35)}
+.modal-content{width:680px;background:white;padding:16px;border-radius:8px}
+.modal-actions{text-align:right;margin-top:12px}
+.modal-actions button{margin-left:8px}
+.campaign{padding:12px;margin-bottom:10px;border-radius:8px;background:white;border:1px solid #e6eefc}
+.campaign .meta{display:flex;justify-content:space-between;align-items:center}
+.progress{height:10px;background:#eef2ff;border-radius:8px;overflow:hidden;margin-top:6px}
+.progress > i{display:block;height:100%;background:linear-gradient(90deg,#60a5fa,#0b5cff)}
+.stat-row{display:flex;gap:10px;margin-top:8px}
+.stat{background:#f8fafc;padding:8px;border-radius:6px;flex:1;text-align:center}
+.small{font-size:12px;color:var(--muted)}
+button.pause{background:#f97316;color:white;border:none;padding:6px 8px;border-radius:6px}
+button.small{padding:6px 8px;border-radius:6px}
+
+@media (max-width:700px){.modal-content{width:92%}}
